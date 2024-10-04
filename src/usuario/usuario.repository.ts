@@ -11,4 +11,10 @@ export class UsuarioRepository {
     async salvar(usuario) {
         this.usuarios.push(usuario)
     }
+
+    async existeComEmail(email: string): Promise<boolean> {
+        return this.usuarios.some(
+            usuario => usuario.email === email
+        )
+    }
 }
